@@ -1,0 +1,49 @@
+%h2 The Best In Nantucket Town Properties
+
+.foo
+  %h3 14 Back St, Nantucket, MA, 02554
+              
+  - features = ['Bedrooms: 3 (King, Queen, Full, +2 Pullout Sofas)', 'Baths w/ Shower & Tub: 2', 'Heat Type: Gas', 'Jacuzzi', 'Washer', 'Dryer', 'Dishwasher', 'Microwave', 'Toaster Oven', 'Blender', 'Coffee Maker', 'Internet: High Speed', 'TVs: 2', 'Iron + Iron Board']
+  - description = "Beautifully renovated bungalow style home in town with a large yard and parking. First Floor: Hardwood floors throughout. Front entry to a sitting area, dining room with seating for ten, kitchen with breakfast table. There is also a queen bedroom. a full bedroom, full bathroom with tub and shower and TV room with queen size pull out couch. Lower Level: Living room with TV and queen sleeper sofa and king bedroom. Full bath with tub and shower."
+
+  %span.span5
+    %ul#info-tabs.nav.nav-tabs
+      %li.active
+        = link_to 'Info', '#info', 'data-toggle' => 'tab'
+      %li
+        = link_to 'Description', '#description', 'data-toggle' => 'tab'
+
+    .tab-content
+      #info.tab-pane.active
+        - features.each do |feature|
+          %p= feature
+      #description.tab-pane
+        %p= description
+        %p= link_to "More Photos", "http://70.88.203.153/barefoot/vre/ed4311/rpt/0/picturesheet_i.asp?CO=ed4311&strIDs=49432"
+        %p= link_to "More Information and Booking", "http://70.88.203.153/barefoot/vre/batchrpt.asp?CO=ed4311&uid=0&qry=ListingSheet&tmpl=ilink&strIDs=49432&strWhere0='6/1/2013','9/1/2013',"
+
+  .span5
+    %ul#property-tabs.nav.nav-tabs
+      %li.active
+        = link_to 'Photos', '#featured-photos', 'data-toggle' => 'tab'
+      %li
+        = link_to 'Map', '#map', 'data-toggle' => 'tab'
+    .tab-content
+      #featured-photos.carousel.slide.tab-pane.active
+        %ol.carousel-indicators
+          - carousel_count = 12
+          - carousel_count.times do |i|
+            - data = {'data-target'=>"#featured-photos", 'data-slide-to'=> i}
+            - data.merge!('class'=>"active") if i == 0
+            %li(data)
+        .carousel-inner
+          - carousel_count.times do |i|
+            - classes = %w(item)
+            - classes << 'active' if i ==0
+            %div{:class => classes}
+              = image_tag "nantucket_town_rental_14_back_st_#{i}.jpg"
+        = link_to '<', '#featured-photos', 'data-slide' => "prev", :class => %w(carousel-control left)
+        = link_to '>', '#featured-photos', 'data-slide' => "next", :class => %w(carousel-control right)
+
+      #map.tab-pane
+        <iframe width="300" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=14+back+st,+nantucket,+ma&amp;sll=41.275873,-70.096646&amp;hl=en&amp;ie=UTF8&amp;hq=&amp;hnear=14+Back+St,+Nantucket,+Massachusetts+02554&amp;t=m&amp;source=embed&amp;ll=41.276839,-70.097322&amp;spn=0.019351,0.025749&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?q=14+back+st,+nantucket,+ma&amp;sll=41.275873,-70.096646&amp;hl=en&amp;ie=UTF8&amp;hq=&amp;hnear=14+Back+St,+Nantucket,+Massachusetts+02554&amp;t=m&amp;source=embed&amp;ll=41.276839,-70.097322&amp;spn=0.019351,0.025749&amp;z=14&amp;iwloc=A" style="color:#0000FF;text-align:left">View Larger Map</a></small>
