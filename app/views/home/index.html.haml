@@ -4,15 +4,21 @@
   %h3 14 Back St, Nantucket, MA, 02554
               
   - features = ['Bedrooms: 3 (King, Queen, Full, +2 Pullout Sofas)', 'Baths w/ Shower & Tub: 2', 'Heat Type: Gas', 'Jacuzzi', 'Washer', 'Dryer', 'Dishwasher', 'Microwave', 'Toaster Oven', 'Blender', 'Coffee Maker', 'Internet: High Speed', 'TVs: 2', 'Iron + Iron Board']
-  - description = "Beautifully renovated bungalow style home in town with a large yard and parking. First Floor: Hardwood floors throughout. Front entry to a sitting area, dining room with seating for ten, kitchen with breakfast table. There is also a queen bedroom. a full bedroom, full bathroom with tub and shower and TV room with queen size pull out couch. Lower Level: Living room with TV and queen sleeper sofa and king bedroom. Full bath with tub and shower."
-
+  - description = <<-EOF
+    - This beautifully restored bungalow is on a quiet street in town, with easy proximity to stores, restaurants, and beaches.
+    - The first floor features all-hardwood floors with a sitting area/living room and a dining room seating up to 10; a newly renovated kitchen; a media/TV room with HD TV and a queen sleeper sofa; and two bedrooms, one with a queen bed and one with a full (double) bed. There is also a bathroom with tub/shower.
+    - Lower level features a large living room with another HD TV and queen sleeper sofa; a bedroom with a king bed; a laundry room; a wet bar area; and a bathroom with jacuzzi and shower.
+    - There is a two-level back deck perfect for sunbathing, lounging, and entertaining, and the backyard is large and gracious.
+    - Back Street is a quiet, tree-lined street with coffee shops a few minutes' walk away and a 10 to 15 minute walk to Main Street. Beaches and restaurants are within easy access. Window AC units for bedrooms. High speed wireless internet."
+  - EOF
   %span.span5
     %ul#info-tabs.nav.nav-tabs
       %li.active
         = link_to 'Info', '#info', 'data-toggle' => 'tab'
       %li
         = link_to 'Description', '#description', 'data-toggle' => 'tab'
-
+      %li
+        = link_to 'History', '#history', 'data-toggle' => 'tab'
     .tab-content
       #info.tab-pane.active
         - features.each do |feature|
@@ -21,7 +27,8 @@
         %p= description
         %p= link_to "More Photos", "http://70.88.203.153/barefoot/vre/ed4311/rpt/0/picturesheet_i.asp?CO=ed4311&strIDs=49432"
         %p= link_to "More Information and Booking", "http://70.88.203.153/barefoot/vre/batchrpt.asp?CO=ed4311&uid=0&qry=ListingSheet&tmpl=ilink&strIDs=49432&strWhere0='6/1/2013','9/1/2013',"
-
+      #history.tab-pane
+        %p= "Nantucket is a beautiful, historic whaling village on an island 30 miles out to sea, with world-class beaches, dining, and museums."
   .span5
     %ul#property-tabs.nav.nav-tabs
       %li.active
